@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Password Generator</string>
+    <string name="select_count">Select Passwords Count:</string>
+    <string name="select_password_length">Select Passwords Length:</string>
+    <string name="password">Password:</string>
+    <string name="generate_passwords">Generate Passwords</string>
+</resources>
