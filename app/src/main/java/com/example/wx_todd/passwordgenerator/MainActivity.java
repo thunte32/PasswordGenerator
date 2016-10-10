@@ -1,9 +1,11 @@
 package com.example.wx_todd.passwordgenerator;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button generateButton;
     ArrayList<String> passwords = new ArrayList<>();
     ProgressDialog progressDialog;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         passwordCount = (TextView) findViewById(R.id.passwordCountTextView);
         passwordLength = (TextView) findViewById(R.id.passwordLengthTextView);
         password = (TextView) findViewById(R.id.showPasswordTextView);
+        passwordCount.setText("1");
+        passwordLength.setText("8");
 
         countSeekbar = (SeekBar) findViewById(R.id.passwordCountSeekbar);
         countSeekbar.setMax(9);
@@ -72,7 +77,11 @@ public class MainActivity extends AppCompatActivity {
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new GeneratePassword().execute();
+                if(passwordCount.equals("") || passwordLength.equals("")){
+
+                }
+                else
+                    new GeneratePassword().execute();
             }
         });
 
@@ -99,6 +108,17 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(ArrayList arrayList) {
             passwords = arrayList;
             progressDialog.dismiss();
+            final CharSequence[] charPasswords = passwords.toArray(new CharSequence[passwords.size()]);
+            builder= new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Choose a password");
+            builder.setItems(charPasswords, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    password.setText(charPasswords[i]);
+                }
+            });
+            builder.setCancelable(false);
+            builder.show();
         }
 
         @Override

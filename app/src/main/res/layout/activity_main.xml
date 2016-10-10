@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_margin="10dp">
 
             <TextView
                 android:text="@string/select_count"
@@ -45,7 +46,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/passwordCountSeekbar"
-            android:paddingTop="10dp" />
+            android:paddingTop="0dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:layout_margin="10dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -57,7 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView5"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:layout_margin="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -69,22 +74,26 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/passwordLengthSeekbar" />
+            android:id="@+id/passwordLengthSeekbar"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:layout_margin="10dp" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
 
             <TextView
                 android:text="@string/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView7"
-                android:layout_weight="1" />
+                android:layout_weight="203.17" />
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="236dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/showPasswordTextView" />
 
@@ -94,7 +103,8 @@
             android:text="@string/generate_passwords"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button" />
+            android:id="@+id/button"
+            android:layout_margin="10dp" />
     </LinearLayout>
 
 </RelativeLayout>
